@@ -1,0 +1,94 @@
+﻿
+
+FTDirector has an unordered_map of IFTDrawable's and these are what it renders each frame
+
+Each IFTDrawable is assigned a unique tag which is used as the key in the map. These uids are uint16_t. The next uid is obtained by incrementing a static counter until such a time as it is a value not in the container. Prior to starting it will check the size of the unordered_map to make sure there is a space available and abort the program if not. This does limit the maximum number of render objects to 65535 but if this ever becomes a problem multiple IFTDrawables can be grouped together to reduce the count. I doubt it will be a problem as in reality I doubt it would be possible to get a decent framerate with that many objects.
+
+IFTDrawable has a single draw(FTNodeDrawData* data)
+
+FTNode will override this and call visit(data,glm::mat4())
+
+MegaVoxel will override this and draw itself normally
+
+
+
+
+
+
+
+Before change to adjacency meshing took 
+
+1.999666 seconds
+
+After it took
+
+
+32-bit iterator took 2.818124 seconds
+
+8-bit itartor took 
+
+
+
+Adjacent is a 16*16*128 array storing the adjacency data for every air block in the chunk - this is used to provide fast meshing and light spreading
+
+
+
+Non-coloured took 2.932885 seconds
+
+
+Sin(z) heightmap
+
+Coloured took 2.866945 seconds with 8 bit iterator
+
+Coloured took 2.780207 seconds with 32 bit iterator
+
+Coloured took 2.729395 seconds with 64 bit iterator
+
+Sin(x) heightmap
+
+2.795829 with 16 bit iterator
+
+2.783270 with 32 bit iterator
+
+2.785640 with 64 bit iterator
+
+
+Using chunks of 32x32x16, we can still always index all the faces with uint16_t and have less caching and less complicated cross Chunk interaction
+
+
+
+
+
+Create 2DCamera
+Create TextRenderNode
+
+Reformat to remove camelcase from most places
+
+
+
+
+
+
+FTDrawable is something which contains a draw() method and is an FTObject
+
+FTScene is the root object of every scene - it doesn't draw anything but maintains a list of layers which it will render
+
+FTLayer is an object which maintains a camera which it uses to draw all attached FTNodes
+
+FTNode is the base elements of everything within the scene
+
+FTNodeParent is a subclass of FTNode which manages a list of FTNodes
+
+
+FTTransformable is a subclass of FTNodeParent which manages a transform
+
+
+
+
+
+
+
+Each shader program renders a particular kind of vertex
+
+It is in charge of binding the vertex layout
+
