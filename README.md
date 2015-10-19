@@ -3,23 +3,10 @@ Frontier.Engine.DemoProject
 
 ##Description
 
-A very barebones project that shows how to get everything setup and not a great deal more.
+A very barebones project that shows how to get everything setup and demonstrates some of the functionality of the engine.
 
 A more detailed set of examples will likely be added in the future.
 
-## Installation (Visual Studio 2013)
+## Installation
 
-- Run CMake in the root directories of ThirdParty/freetype-gl and ThirdParty/glfw
-- Download glew from https://sourceforge.net/projects/glew/files/glew/1.11.0/glew-1.11.0.zip/download
-- Extract glew into ThirdParty/glew-1.11.0 such that ThirdParty/glew-1.11.0/Makefile exists
-- Open Frontier.sln
-- If prompted agree to upgrade projects
-- Right click and reload any projects which failed to load
-- Open the Configuration Manager
-- Make sure all projects are set to build and to the same target architecture
-- You will need to add a new architecture for some of the ThirdParty projects
-- Build All
-
-## Troubleshooting
-
-If you are encountering linker errors try removing and re-adding all project references for Frontier.Engine and Frontier
+This project uses CMake and so it should just be a simple case of setting ${REPO_ROOT} as the source code directory and $[REPO_ROOT}/Build as the location to build the binaries in CMake. This will generate the build files required to compile with your chosen build system.

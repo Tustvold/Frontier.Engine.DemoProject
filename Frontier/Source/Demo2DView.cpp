@@ -1,4 +1,4 @@
-﻿#include "Demo3DView.h"
+﻿#include "Demo2DView.h"
 #include <Rendering/Camera/FTCamera2D.h>
 #include <Rendering/Text/FTLabel.h>
 #include <Rendering/Scene/Action/FTActionSequence.h>
@@ -8,7 +8,7 @@
 #include <Rendering/Scene/Action/FTCallFuncAction.h>
 #include <Rendering/Scene/Action/FTRepeatAction.h>
 
-Demo3DView::Demo3DView() {
+Demo2DView::Demo2DView() {
     setCamera(std::make_shared<FTCamera2D>());
 	
     auto window_size_node = std::make_shared<FTWindowSizeNode>();
@@ -56,5 +56,5 @@ Demo3DView::Demo3DView() {
     layout->runAction(std::make_unique<FTRepeatAction>(std::move(sequence), -1));
 }
 
-Demo3DView::~Demo3DView() {
+Demo2DView::~Demo2DView() {
 }

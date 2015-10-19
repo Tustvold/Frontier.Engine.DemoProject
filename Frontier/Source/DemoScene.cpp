@@ -1,8 +1,8 @@
 ﻿#include "DemoScene.h"
-#include "Demo3DView.h"
+#include "Demo2DView.h"
 
 DemoScene::DemoScene() {
-	auto view = std::make_shared<Demo3DView>();
+	auto view = std::make_shared<Demo2DView>();
 	addView(std::move(view));
 }
 

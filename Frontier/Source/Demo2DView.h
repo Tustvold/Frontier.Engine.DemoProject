@@ -3,10 +3,10 @@
 
 class FTNode;
 
-class Demo3DView : public FTView {
+class Demo2DView : public FTView {
 public:
-	Demo3DView();
-	~Demo3DView();
+	Demo2DView();
+	~Demo2DView();
 
 protected:
 };
