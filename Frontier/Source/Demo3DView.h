@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include <Rendering/Scene/FTView.h>
-#include <FTArray.h>
 
 class FTNode;
 
@@ -9,8 +8,5 @@ public:
 	Demo3DView();
 	~Demo3DView();
 
-	virtual void draw() override;
-
 protected:
-	FTArray<FTNode>* nodes_;
 };
