@@ -1,8 +1,6 @@
-project (Frontier)
-
 add_definitions(-DGLEW_STATIC)
 
-add_subdirectory(SOURCE)
+add_subdirectory(Source)
 
 # We can use GLOB here as in order for a CMakeList to be used a pre-existing one
 # must have been modified and therefore the build system will know to rebuild
@@ -32,6 +30,6 @@ TARGET_LINK_LIBRARIES(FrontierLauncher
 	${FRONTIER_ENGINE_LIBS}
 )
 
-add_custom_command(TARGET Frontier POST_BUILD
+add_custom_command(TARGET FrontierLauncher POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory
                        ${CMAKE_CURRENT_SOURCE_DIR}/Resources ${CMAKE_CURRENT_BINARY_DIR}/Resources)
